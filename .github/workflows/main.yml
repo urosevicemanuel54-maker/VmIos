@@ -1,0 +1,73 @@
+
+name: VirtualiOS - Stage 1 Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build iOS ARM64 Emulator
+    runs-on: macos-15
+    timeout-minutes: 90
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      JOBS: "3"
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Verify Apple toolchain
+        run: |
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          clang --version
+          rustc --version
+
+      - name: Install dependencies
+        run: |
+          brew install ninja pkgconf glib pixman libslirp qemu
+
+      - name: Install Rust iOS target
+        run: |
+          rustup target add aarch64-apple-ios
+
+      - name: Fetch iOS dependencies
+        run: |
+          scripts/fetch-ios-deps.sh
+
+      - name: Build QEMU
+        run: |
+          scripts/build-ios.sh
+
+      - name: Build iOS application
+        run: |
+          ios/app/build.sh
+
+      - name: Verify build outputs
+        run: |
+          test -f qemu/build-ios/libqemu-aarch64-softmmu.dylib
+          test -f ios/app/Orchard.ipa
+
+          file qemu/build-ios/libqemu-aarch64-softmmu.dylib
+          du -h qemu/build-ios/libqemu-aarch64-softmmu.dylib
+          du -h ios/app/Orchard.ipa
+
+      - name: Upload emulator artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: VirtualiOS-Stage1
+          path: |
+            qemu/build-ios/libqemu-aarch64-softmmu.dylib
+            ios/app/Orchard.ipa
+          if-no-files-found: error
+          retention-days: 14
