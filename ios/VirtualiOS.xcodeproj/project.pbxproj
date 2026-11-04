@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A10000000000000000000001 /* VirtualiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* VirtualiOSApp.swift */; };
+		A10000000000000000000002 /* QEMUBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* QEMUBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B10000000000000000000001 /* VirtualiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualiOSApp.swift; sourceTree = "<group>"; };
 		B10000000000000000000002 /* VirtualiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000003 /* QEMUBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QEMUBridge.h; sourceTree = "<group>"; };
+		B10000000000000000000004 /* QEMUBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QEMUBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +41,8 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000001 /* VirtualiOSApp.swift */,
+				B10000000000000000000003 /* QEMUBridge.h */,
+				B10000000000000000000004 /* QEMUBridge.m */,
 			);
 			path = VirtualiOS;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10000000000000000000001 /* VirtualiOSApp.swift in Sources */,
+				A10000000000000000000002 /* QEMUBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,11 +158,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = VirtualiOS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.urosevicemanuel.virtualios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = VirtualiOS/QEMUBridge.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -168,11 +176,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = VirtualiOS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.urosevicemanuel.virtualios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = VirtualiOS/QEMUBridge.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

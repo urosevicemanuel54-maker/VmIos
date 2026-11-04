@@ -1,4 +1,4 @@
-name: VirtualiOS - Stage 1 host app
+name: VirtualiOS - Stage 2 ARM64 TCI host app
 
 on:
   workflow_dispatch:
@@ -11,9 +11,9 @@ permissions:
 
 jobs:
   build:
-    name: Build unsigned iOS host app
+    name: Build unsigned iOS app with QEMU TCI
     runs-on: macos-15
-    timeout-minutes: 30
+    timeout-minutes: 180
 
     steps:
       - name: Checkout source
@@ -28,16 +28,29 @@ jobs:
         run: |
           bash scripts/build-ios.sh
 
+      - name: Verify QEMU engine
+        run: |
+          test -n "$(find build/VirtualiOS-QEMU -type f -name '*.dylib' -print -quit)"
+          file build/VirtualiOS-QEMU/*.dylib
+
       - name: Verify IPA
         run: |
           test -s build/VirtualiOS-unsigned.ipa
           unzip -l build/VirtualiOS-unsigned.ipa
           du -h build/VirtualiOS-unsigned.ipa
 
-      - name: Upload Stage 1 artifact
+      - name: Upload Stage 2 artifact
         uses: actions/upload-artifact@v4
         with:
-          name: VirtualiOS-Stage1
+          name: VirtualiOS-Stage2
           path: build/VirtualiOS-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload QEMU TCI engine
+        uses: actions/upload-artifact@v4
+        with:
+          name: VirtualiOS-QEMU-TCI-iOS-arm64
+          path: build/VirtualiOS-QEMU/*.dylib
           if-no-files-found: error
           retention-days: 14
