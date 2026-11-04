@@ -3,68 +3,89 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10000000000000000000001 /* VirtualiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* VirtualiOSApp.swift */; };
-		A10000000000000000000002 /* QEMUBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* QEMUBridge.m */; };
+		5076C721C2034D0FF9F745F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B195570A5B42E4CF3734AAE4 /* Foundation.framework */; };
+		C32EBEDB18D6B3980D974681 /* VirtualiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7E57944279807B99A53A2 /* VirtualiOSApp.swift */; };
+		F5F04101E837808377AE19EF /* QEMUBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8980CBF461A1EEE9FC9A61BE /* QEMUBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B10000000000000000000001 /* VirtualiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualiOSApp.swift; sourceTree = "<group>"; };
-		B10000000000000000000002 /* VirtualiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B10000000000000000000003 /* QEMUBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QEMUBridge.h; sourceTree = "<group>"; };
-		B10000000000000000000004 /* QEMUBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QEMUBridge.m; sourceTree = "<group>"; };
+		8980CBF461A1EEE9FC9A61BE /* QEMUBridge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEMUBridge.m; path = VirtualiOS/QEMUBridge.m; sourceTree = "<group>"; };
+		923A336577FC5EB90E7C1B02 /* QEMUBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QEMUBridge.h; path = VirtualiOS/QEMUBridge.h; sourceTree = "<group>"; };
+		B195570A5B42E4CF3734AAE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BAA7E57944279807B99A53A2 /* VirtualiOSApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VirtualiOSApp.swift; path = VirtualiOS/VirtualiOSApp.swift; sourceTree = "<group>"; };
+		BDCDBA5C4415346429C2223A /* VirtualiOS */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VirtualiOS; path = VirtualiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C10000000000000000000001 /* Frameworks */ = {
+		0A6B31E4C589596C3762007C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5076C721C2034D0FF9F745F5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D10000000000000000000001 = {
+		0BD398F6CA8AA2FE55F49DE2 = {
 			isa = PBXGroup;
 			children = (
-				D10000000000000000000002 /* VirtualiOS */,
-				D10000000000000000000003 /* Products */,
+				120E9CBAEABB414FBCA148CD /* Products */,
+				69401375828DEB3C928AE2E1 /* Frameworks */,
+				40E8B90551EAB5C64624F375 /* VirtualiOS */,
 			);
 			sourceTree = "<group>";
 		};
-		D10000000000000000000002 /* VirtualiOS */ = {
+		120E9CBAEABB414FBCA148CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B10000000000000000000001 /* VirtualiOSApp.swift */,
-				B10000000000000000000003 /* QEMUBridge.h */,
-				B10000000000000000000004 /* QEMUBridge.m */,
+				BDCDBA5C4415346429C2223A /* VirtualiOS */,
 			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40E8B90551EAB5C64624F375 /* VirtualiOS */ = {
+			isa = PBXGroup;
+			children = (
+				BAA7E57944279807B99A53A2 /* VirtualiOSApp.swift */,
+				923A336577FC5EB90E7C1B02 /* QEMUBridge.h */,
+				8980CBF461A1EEE9FC9A61BE /* QEMUBridge.m */,
+			);
+			name = VirtualiOS;
 			path = VirtualiOS;
 			sourceTree = "<group>";
 		};
-		D10000000000000000000003 /* Products */ = {
+		69401375828DEB3C928AE2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B10000000000000000000002 /* VirtualiOS.app */,
+				74D0CC0C0EEAF27D5E6096DB /* iOS */,
 			);
-			name = Products;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74D0CC0C0EEAF27D5E6096DB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B195570A5B42E4CF3734AAE4 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E10000000000000000000001 /* VirtualiOS */ = {
+		D5F8CA913082DFC9C4BA5E63 /* VirtualiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F10000000000000000000002 /* Build configuration list for PBXNativeTarget "VirtualiOS" */;
+			buildConfigurationList = 4003A2A65BCA7C658FE328DA /* Build configuration list for PBXNativeTarget "VirtualiOS" */;
 			buildPhases = (
-				C10000000000000000000002 /* Sources */,
-				C10000000000000000000001 /* Frameworks */,
-				C10000000000000000000003 /* Resources */,
+				FD8F561D9E8BCE5BC62D17BF /* Sources */,
+				0A6B31E4C589596C3762007C /* Frameworks */,
+				59FDFDD14A210248A8BE2745 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -72,43 +93,46 @@
 			);
 			name = VirtualiOS;
 			productName = VirtualiOS;
-			productReference = B10000000000000000000002 /* VirtualiOS.app */;
+			productReference = BDCDBA5C4415346429C2223A /* VirtualiOS */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E10000000000000000000002 /* Project object */ = {
+		F10020CC7D8C32C35E40DA43 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = true;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
-					E10000000000000000000001 = {
+					D5F8CA913082DFC9C4BA5E63 = {
 						CreatedOnToolsVersion = 26.3;
 					};
 				};
 			};
-			buildConfigurationList = F10000000000000000000001 /* Build configuration list for PBXProject "VirtualiOS" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = 57F648705DF72897557BEB20 /* Build configuration list for PBXProject "VirtualiOS" */;
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = D10000000000000000000001;
-			productRefGroup = D10000000000000000000003 /* Products */;
+			mainGroup = 0BD398F6CA8AA2FE55F49DE2;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 100;
+			productRefGroup = 120E9CBAEABB414FBCA148CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E10000000000000000000001 /* VirtualiOS */,
+				D5F8CA913082DFC9C4BA5E63 /* VirtualiOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C10000000000000000000003 /* Resources */ = {
+		59FDFDD14A210248A8BE2745 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -118,50 +142,113 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C10000000000000000000002 /* Sources */ = {
+		FD8F561D9E8BCE5BC62D17BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10000000000000000000001 /* VirtualiOSApp.swift in Sources */,
-				A10000000000000000000002 /* QEMUBridge.m in Sources */,
+				C32EBEDB18D6B3980D974681 /* VirtualiOSApp.swift in Sources */,
+				F5F04101E837808377AE19EF /* QEMUBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F10000000000000000000003 /* Debug */ = {
+		0FF4D94BC9A174019ECF5A52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		F10000000000000000000004 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				SDKROOT = iphoneos;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		F10000000000000000000005 /* Debug */ = {
+		41608619947C037B0AD03CB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = VirtualiOS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.urosevicemanuel.virtualios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = VirtualiOS/QEMUBridge.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD7C27C9F5835F5C681825A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = VirtualiOS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.urosevicemanuel.virtualios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = VirtualiOS/QEMUBridge.h;
@@ -170,46 +257,89 @@
 			};
 			name = Debug;
 		};
-		F10000000000000000000006 /* Release */ = {
+		D8A2F10730ACF98FD38D8466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = VirtualiOS;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.urosevicemanuel.virtualios;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = VirtualiOS/QEMUBridge.h;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F10000000000000000000001 /* Build configuration list for PBXProject "VirtualiOS" */ = {
+		4003A2A65BCA7C658FE328DA /* Build configuration list for PBXNativeTarget "VirtualiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F10000000000000000000003 /* Debug */,
-				F10000000000000000000004 /* Release */,
+				41608619947C037B0AD03CB1 /* Release */,
+				CD7C27C9F5835F5C681825A7 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F10000000000000000000002 /* Build configuration list for PBXNativeTarget "VirtualiOS" */ = {
+		57F648705DF72897557BEB20 /* Build configuration list for PBXProject "VirtualiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F10000000000000000000005 /* Debug */,
-				F10000000000000000000006 /* Release */,
+				D8A2F10730ACF98FD38D8466 /* Debug */,
+				0FF4D94BC9A174019ECF5A52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E10000000000000000000002 /* Project object */;
+	rootObject = F10020CC7D8C32C35E40DA43 /* Project object */;
 }
