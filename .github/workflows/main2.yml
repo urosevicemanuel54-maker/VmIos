@@ -1,0 +1,43 @@
+name: VirtualiOS - Stage 1 host app
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build unsigned iOS host app
+    runs-on: macos-15
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Verify Apple toolchain
+        run: |
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+
+      - name: Build and package app
+        run: |
+          bash scripts/build-ios.sh
+
+      - name: Verify IPA
+        run: |
+          test -s build/VirtualiOS-unsigned.ipa
+          unzip -l build/VirtualiOS-unsigned.ipa
+          du -h build/VirtualiOS-unsigned.ipa
+
+      - name: Upload Stage 1 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VirtualiOS-Stage1
+          path: build/VirtualiOS-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
