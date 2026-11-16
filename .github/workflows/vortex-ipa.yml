@@ -1,0 +1,43 @@
+name: Build Vortex unsigned IPA
+
+on:
+  push:
+    branches:
+      - build-vortex-ipa
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build unsigned iOS app
+    runs-on: macos-15
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Verify Apple toolchain
+        run: |
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+
+      - name: Build and package IPA
+        run: bash scripts/build-vortex-ios.sh
+
+      - name: Verify IPA
+        run: |
+          test -s build/Vortex-unsigned.ipa
+          unzip -t build/Vortex-unsigned.ipa
+          unzip -Z1 build/Vortex-unsigned.ipa | grep -Fx 'Payload/Vortex.app/Info.plist'
+          du -h build/Vortex-unsigned.ipa
+
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vortex-unsigned-IPA
+          path: build/Vortex-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
