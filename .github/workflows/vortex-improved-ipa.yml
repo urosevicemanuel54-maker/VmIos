@@ -1,0 +1,62 @@
+name: Build Vortex Improved unsigned IPA
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build unsigned iOS app
+    runs-on: xcode-27
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Verify Apple toolchain
+        run: |
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+
+      - name: Extract improved source
+        run: |
+          mkdir -p build/source
+          unzip -q Vortex-improved.zip -d build/source
+
+      - name: Build and package IPA
+        run: |
+          xcodebuild \
+            -project build/source/Vortex.xcodeproj \
+            -scheme Vortex \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+          APP_PATH="build/DerivedData/Build/Products/Release-iphoneos/Vortex.app"
+          test -d "$APP_PATH"
+          mkdir -p build/package/Payload
+          ditto "$APP_PATH" build/package/Payload/Vortex.app
+          (
+            cd build/package
+            /usr/bin/zip -qry ../Vortex-improved-unsigned.ipa Payload
+          )
+
+      - name: Verify IPA
+        run: |
+          test -s build/Vortex-improved-unsigned.ipa
+          unzip -t build/Vortex-improved-unsigned.ipa
+          unzip -Z1 build/Vortex-improved-unsigned.ipa | grep -Fx 'Payload/Vortex.app/Info.plist'
+
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vortex-improved-unsigned-IPA
+          path: build/Vortex-improved-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
